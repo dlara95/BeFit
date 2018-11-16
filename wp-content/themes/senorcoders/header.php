@@ -1,52 +1,62 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Senorcoders
- */
-
-?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<?php wp_head(); ?>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
-
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'senorcoders' ); ?></a>
+            <?php  $url = home_url(); ?>
+  
+  <header class="pages-header">
+    
+    <div class="nav-overlay">
+       <div class="top-header">
+        <div class="container">
+             <?php include 'inc/top-header.php'; ?>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			
-			$senorcoders_description = get_bloginfo( 'description', 'display' );
-			if ( $senorcoders_description || is_customize_preview() ) :
-				?>
-				
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+        </div>
+      </div>
+      <div class="lower-header">
+         <nav class=" container navbar navbar-expand-lg navbar-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="<?php echo $url; ?>">
+           <?php  $custom_logo_id = get_theme_mod( 'custom_logo' );
+                  $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                  if ( has_custom_logo() ) {
+                          echo '<img  alt="Logo" src="'. esc_url( $logo[0] ) .'">';
+                  } else {
+                          echo  get_bloginfo( 'name' );
+                  } ?>
+           </a>
 
-		<nav id="site-navigation" class="main-navigation align-right">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'senorcoders' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+              <?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id'  => 'primary-menu', 'container'=> false,  'menu_class' => 'navbar-nav ml-auto mt-2 mt-lg-0' ) ); ?>
 
-	<div id="content" class="site-content">
+            
+          </div>
+        </nav>
+      </div>
+       
+       </div>
+    
+    <?php if(get_the_post_thumbnail_url()): ?>
+    <div class="page-custom-bg" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
+    <?php else: ?>
+    <div class="page-custom-bg" style="background-image: url(/wp-content/uploads/2018/11/bg3.jpg);">
+    <?php endif; ?>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="single-page-main-title"><?php the_title(); ?></h1>
+          </div>
+        </div>
+      </div>
+        <p class="pages-breadcrumb">
+          <span>Home / <?php the_title(); ?></span>
+        </p>
+      </div>
+  </header>

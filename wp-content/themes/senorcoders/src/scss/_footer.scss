@@ -30,7 +30,7 @@ footer {
         padding-left: 0px !important;
         
         li {
-            margin-top: 0.5em;
+            margin-bottom: 0.5em;
             color: #fff;
             
             a{
@@ -53,6 +53,9 @@ footer {
         grid-area: logo;
         align-self: start;
         justify-self: center;
+      img{
+        width: 100px;
+      }
 
         @include md {
             justify-self: left;
@@ -87,4 +90,38 @@ footer {
         align-self: center;
         justify-self: center;
     }
+  
+   .social-header{
+      margin: 0;
+      li{
+        color: #fff;
+      }
+      a{
+            padding: 3px 11px;
+            background: #ffffff;
+            border-radius: 30px;
+            display: inline-block;
+            color: #000;
+            font-size: 16px;
+      }
+    }
+    .info-list{
+      margin: 0;
+      li{
+        line-height: 26px;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'Lato', sans-serif;
+        color: #fff;
+          i{
+              color: $primary_color;
+              padding-right: 10px;
+              font-size: 18px;
+        }
+      }
+    }
+  
+  #menu-main-menu{
+    column-count: 2;
+  }
 }

@@ -143,6 +143,15 @@ add_action( 'widgets_init', 'senorcoders_widgets_init' );
  */
 function senorcoders_scripts() {
 	//wp_enqueue_style('main-styles', get_template_directory_uri() . '/senorcoders.min.css', array(), filemtime(get_template_directory() . '/senorcoders.min.css'), false); //live
+      wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css' );
+    wp_enqueue_style( 'fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' ); 
+        wp_enqueue_style( 'lato', 'https://fonts.googleapis.com/css?family=Lato:400,700' );
+          wp_enqueue_style( 'raleway', 'https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,800,900' );
+  		wp_enqueue_style( 'owlCSS', get_template_directory_uri(). '/css/owl.carousel.min.css' );
+		wp_enqueue_style( 'owlTheme', get_template_directory_uri(). '/css/owl.theme.default.min.css' );
+
+
+
   wp_enqueue_style('main-styles', get_template_directory_uri() . '/src/css/senorcoders.css', array(), filemtime(get_template_directory() . '/src/css/senorcoders.css'), false); //dev
 	
 	wp_enqueue_style( 'senorcoders-style', get_stylesheet_uri() );
@@ -154,6 +163,12 @@ function senorcoders_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+     wp_enqueue_script( 'popperJs', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', array( 'jquery' ) );
+    
+    wp_enqueue_script( 'boostrapjs', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js', array( 'jquery' ) );
+	  wp_enqueue_script( 'select2js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ) );
+      wp_enqueue_script( 'owlJs', get_template_directory_uri(). '/js/owl.carousel.js' , array( 'jquery' ) );
+
 	wp_enqueue_script( 'senorcoders', get_template_directory_uri() . '/js/senorcoders.min.js', array('jquery'), null , true );
 }
 add_action( 'wp_enqueue_scripts', 'senorcoders_scripts' );
@@ -194,3 +209,5 @@ require get_template_directory() . '/inc/custom_acf.php';
 require get_template_directory() . '/inc/widgets.php';
 
 require get_template_directory() . '/inc/custom_shortcodes.php';
+
+require get_template_directory() . '/inc/clubReady.php';

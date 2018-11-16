@@ -14,7 +14,6 @@
 
 get_header();
 ?>
-	<?php get_template_part( 'template-parts/big', 'hero') ; ?>
 
 	<div id="primary" class="content-area container">
 		<main id="main" class="site-main">
