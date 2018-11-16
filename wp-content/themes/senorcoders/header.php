@@ -51,12 +51,20 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
+            <?php if(is_home()): ?>
+             <h1 class="single-page-main-title">Blog</h1>
+            <?php else: ?>
             <h1 class="single-page-main-title"><?php the_title(); ?></h1>
+            <?php endif; ?>
           </div>
         </div>
       </div>
         <p class="pages-breadcrumb">
+           <?php if(is_home()): ?>
+             <span>Home / Blog</span>
+            <?php else: ?>
           <span>Home / <?php the_title(); ?></span>
+        <?php endif; ?>
         </p>
       </div>
   </header>
