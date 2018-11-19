@@ -1,5 +1,5 @@
 <?php get_header('front'); /*Template Name: Frontpage */ ?>
-
+ 
 <div class="membership-section">
   <div class="container">
     <div class="row">

@@ -211,3 +211,36 @@ require get_template_directory() . '/inc/widgets.php';
 require get_template_directory() . '/inc/custom_shortcodes.php';
 
 require get_template_directory() . '/inc/clubReady.php';
+
+
+
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(/wp-content/uploads/2018/11/befit-logo.png);
+	    height: 65px;
+    width: 320px;
+    background-size: contain;
+    background-repeat: no-repeat;
+        }
+      body.login{
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(/wp-content/uploads/2018/11/athletes-endurance-energy-685534.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+      
+      body.login div#login{
+            width: 320px;
+    margin: auto;
+    background: #fff;
+    margin-top: 30px;
+    border-radius: 30px;
+       padding: 5% 8%;
+      }
+      body.login div#login form#loginform{
+        box-shadow: none;
+      }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );

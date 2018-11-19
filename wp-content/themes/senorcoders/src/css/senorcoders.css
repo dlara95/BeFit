@@ -1904,4 +1904,10 @@ a {
         vertical-align: middle;
         font-size: 20px; }
 
+body.login {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(/wp-content/uploads/2018/11/athletes-endurance-energy-685534.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
 /*# sourceMappingURL=senorcoders.css.map */

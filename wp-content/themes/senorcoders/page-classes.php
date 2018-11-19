@@ -33,6 +33,49 @@
         ?>
        
       </div>
+      <div class="row">
+       <?php    include_once get_template_directory() . '/clubReady/api.php';
+                $ClubReady = new ClubReady();
+             $date_format = 'Y-m-d\TH:i:s\Z'; 
+
+               $today = mktime();
+                 $d = date('d', $today);
+               $m = date('m', $today);
+               $y = date('Y', $today);
+                 $sevendays = gmdate($date_format, mktime(0, 0, 0, $m, ($d + 7), $y));
+                $allClasses = $ClubReady->getClasses($sevendays); 
+                
+               //var_dump($allClasses);
+        
+        ?>
+      <?php  if(!empty($allClasses)): ?>
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Title</th>
+      <th scope="col">Start Time</th>
+      <th scope="col">End Time</th>
+      <th scope="col">Instructor</th>
+      <th scope="col">Free Spots</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($allClasses as $class) { ?>
+    <tr>
+      <th scope="row"><?php echo $class->Date ?></th>
+      <td><?php echo $class->Title ?></td>
+      <td><?php echo $class ->StartTime ?></td>
+      <td><?php echo $class->EndTime ?></td>
+       <td><?php echo $class->InstructorFirstName . ' ' . $class->InstructorLastName ?></td>
+       <td><?php echo $class->FreeSpots ?></td>
+    </tr>
+<?php } ?>
+ 
+  </tbody>
+</table>
+        <?php endif; ?>
+      </div>
     </div>
 </div>
 <?php get_footer(); ?>
